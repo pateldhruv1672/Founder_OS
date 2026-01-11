@@ -1,11 +1,12 @@
 ---
 research_marketing_opportunities:
-  description: Conduct comprehensive market research to identify trending marketing
+  description: 'Conduct comprehensive market research to identify trending marketing
     opportunities, consumer pain points, competitive gaps, and high-converting content
     angles in {industry}. Focus on trends that present lead generation opportunities,
     emerging customer needs, and market positioning advantages. Analyze competitor
     strategies, customer sentiment, and industry developments that can be leveraged
-    for marketing campaigns.
+    for marketing campaigns. If provided, incorporate user-specific ideas: {ideas}
+    into the research analysis and validate their market potential.'
   expected_output: 'A detailed marketing intelligence report featuring: top 5-7 trending
     opportunities with conversion potential, identified customer pain points and needs,
     competitive landscape analysis, recommended content angles for lead generation,
@@ -18,7 +19,9 @@ create_high_converting_marketing_content:
     brand authority. Each post should address specific customer pain points, include
     persuasive copy, strong calls-to-action, and be optimized for different stages
     of the marketing funnel. Include platform-specific optimizations and engagement
-    strategies that maximize conversion potential.
+    strategies that maximize conversion potential. If user ideas are provided ({ideas}),
+    integrate these concepts creatively into the content strategy while maintaining
+    conversion focus.
   expected_output: 'A complete set of 3-5 marketing-optimized social media posts with:
     persuasive headlines and copy, specific calls-to-action for lead generation, targeted
     hashtags for reach, funnel-stage optimization (awareness, consideration, decision),
@@ -39,6 +42,7 @@ finalize_marketing_campaign_package:
       "campaign_overview": {
         "industry": "{industry}",
         "topic": "{topic}",
+        "user_ideas": "{ideas}",
         "generated_at": "timestamp",
         "total_posts": "number"
       },
@@ -46,6 +50,7 @@ finalize_marketing_campaign_package:
         "trending_opportunities": ["list of opportunities"],
         "customer_pain_points": ["list of pain points"],
         "competitive_insights": ["list of insights"],
+        "ideas_validation": "assessment of user ideas market potential",
         "roi_potential": "assessment"
       },
       "social_media_posts": [
@@ -59,7 +64,8 @@ finalize_marketing_campaign_package:
           "funnel_stage": "awareness/consideration/decision",
           "target_audience": "description",
           "performance_notes": "optimization suggestions",
-          "visual_suggestions": "recommendations for accompanying visuals"
+          "visual_suggestions": "recommendations for accompanying visuals",
+          "user_idea_integration": "how user ideas were incorporated if applicable"
         }
       ],
       "campaign_recommendations": {
@@ -71,7 +77,7 @@ finalize_marketing_campaign_package:
       }
     }
     ```
-    This JSON structure provides all campaign data in a frontend-ready format with clear organization and actionable insights, focusing purely on content strategy and marketing intelligence.
+    This JSON structure provides all campaign data in a frontend-ready format with clear organization and actionable insights, incorporating user ideas when provided while focusing on content strategy and marketing intelligence.
   agent: marketing_content_strategist
   context:
   - create_high_converting_marketing_content

@@ -13,7 +13,8 @@ def run():
     """
     inputs = {
         'industry': 'sample_value',
-        'topic': 'sample_value'
+        'topic': 'sample_value',
+        'ideas': 'sample_value'
     }
     MarketingContentStudioLeadGenerationConversionAutomationCrew().crew().kickoff(inputs=inputs)
 
@@ -24,7 +25,8 @@ def train():
     """
     inputs = {
         'industry': 'sample_value',
-        'topic': 'sample_value'
+        'topic': 'sample_value',
+        'ideas': 'sample_value'
     }
     try:
         MarketingContentStudioLeadGenerationConversionAutomationCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -48,7 +50,8 @@ def test():
     """
     inputs = {
         'industry': 'sample_value',
-        'topic': 'sample_value'
+        'topic': 'sample_value',
+        'ideas': 'sample_value'
     }
     try:
         MarketingContentStudioLeadGenerationConversionAutomationCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
