@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/investment-campaign.schema.json",
+  "title": "Investment Social Campaign Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["campaign_overview", "marketing_research", "social_media_posts", "campaign_recommendations"],
+  "properties": {
+    "campaign_overview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["industry", "topic", "user_ideas", "generated_at", "total_posts"],
+      "properties": {
+        "industry": { "type": "string", "minLength": 1 },
+        "topic": { "type": "string", "minLength": 1 },
+        "user_ideas": { "type": "string", "minLength": 1 },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "total_posts": {
+          "description": "Total number of posts in the campaign. Your sample uses a string, so this allows either string or integer.",
+          "oneOf": [
+            { "type": "integer", "minimum": 0 },
+            { "type": "string", "pattern": "^[0-9]+$" }
+          ]
+        }
+      }
+    },
+    "marketing_research": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trending_opportunities",
+        "customer_pain_points",
+        "competitive_insights",
+        "ideas_validation",
+        "roi_potential"
+      ],
+      "properties": {
+        "trending_opportunities": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "customer_pain_points": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "competitive_insights": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "ideas_validation": { "type": "string", "minLength": 1 },
+        "roi_potential": { "type": "string", "minLength": 1 }
+      }
+    },
+    "social_media_posts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "platform",
+          "headline",
+          "content",
+          "call_to_action",
+          "hashtags",
+          "funnel_stage",
+          "target_audience",
+          "performance_notes",
+          "visual_suggestions",
+          "user_idea_integration"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "platform": { "type": "string", "minLength": 1 },
+          "headline": { "type": "string", "minLength": 1 },
+          "content": { "type": "string", "minLength": 1 },
+          "call_to_action": { "type": "string", "minLength": 1 },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#\\S+$"
+            }
+          },
+          "funnel_stage": {
+            "type": "string",
+            "enum": ["awareness", "consideration", "decision"]
+          },
+          "target_audience": { "type": "string", "minLength": 1 },
+          "performance_notes": { "type": "string", "minLength": 1 },
+          "visual_suggestions": { "type": "string", "minLength": 1 },
+          "user_idea_integration": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "campaign_recommendations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "best_posting_times",
+        "expected_performance",
+        "budget_suggestions",
+        "content_amplification",
+        "next_steps"
+      ],
+      "properties": {
+        "best_posting_times": { "type": "string", "minLength": 1 },
+        "expected_performance": { "type": "string", "minLength": 1 },
+        "budget_suggestions": { "type": "string", "minLength": 1 },
+        "content_amplification": { "type": "string", "minLength": 1 },
+        "next_steps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        }
+      }
+    }
+  }
+}
