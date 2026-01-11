@@ -1,0 +1,77 @@
+---
+research_marketing_opportunities:
+  description: Conduct comprehensive market research to identify trending marketing
+    opportunities, consumer pain points, competitive gaps, and high-converting content
+    angles in {industry}. Focus on trends that present lead generation opportunities,
+    emerging customer needs, and market positioning advantages. Analyze competitor
+    strategies, customer sentiment, and industry developments that can be leveraged
+    for marketing campaigns.
+  expected_output: 'A detailed marketing intelligence report featuring: top 5-7 trending
+    opportunities with conversion potential, identified customer pain points and needs,
+    competitive landscape analysis, recommended content angles for lead generation,
+    and actionable insights for marketing strategy. Include engagement metrics, target
+    audience insights, and ROI potential for each opportunity.'
+  agent: marketing_trend_research_specialist
+create_high_converting_marketing_content:
+  description: Based on the marketing research, create 3-5 high-converting social
+    media posts about {topic} designed to generate leads, drive traffic, and build
+    brand authority. Each post should address specific customer pain points, include
+    persuasive copy, strong calls-to-action, and be optimized for different stages
+    of the marketing funnel. Include platform-specific optimizations and engagement
+    strategies that maximize conversion potential.
+  expected_output: 'A complete set of 3-5 marketing-optimized social media posts with:
+    persuasive headlines and copy, specific calls-to-action for lead generation, targeted
+    hashtags for reach, funnel-stage optimization (awareness, consideration, decision),
+    platform-specific formatting, and performance optimization notes. Each post should
+    be conversion-focused and ready to deploy as part of a lead generation campaign.'
+  agent: marketing_content_strategist
+  context:
+  - research_marketing_opportunities
+finalize_marketing_campaign_package:
+  description: Compile and structure all marketing research and content into a comprehensive
+    campaign package. Organize the marketing intelligence, social media posts, and
+    strategic recommendations into a clean, actionable format ready for implementation.
+    Focus on delivering conversion-optimized content with clear performance guidance.
+  expected_output: |-
+    A structured JSON object containing the complete marketing campaign package:
+    ```json
+    {
+      "campaign_overview": {
+        "industry": "{industry}",
+        "topic": "{topic}",
+        "generated_at": "timestamp",
+        "total_posts": "number"
+      },
+      "marketing_research": {
+        "trending_opportunities": ["list of opportunities"],
+        "customer_pain_points": ["list of pain points"],
+        "competitive_insights": ["list of insights"],
+        "roi_potential": "assessment"
+      },
+      "social_media_posts": [
+        {
+          "id": "post_1",
+          "platform": "platform_name",
+          "headline": "compelling headline",
+          "content": "full post content",
+          "call_to_action": "specific CTA",
+          "hashtags": ["#tag1", "#tag2"],
+          "funnel_stage": "awareness/consideration/decision",
+          "target_audience": "description",
+          "performance_notes": "optimization suggestions",
+          "visual_suggestions": "recommendations for accompanying visuals"
+        }
+      ],
+      "campaign_recommendations": {
+        "best_posting_times": "suggested schedule",
+        "expected_performance": "projected metrics",
+        "budget_suggestions": "ad spend recommendations",
+        "content_amplification": "strategies for expanding reach",
+        "next_steps": ["actionable items"]
+      }
+    }
+    ```
+    This JSON structure provides all campaign data in a frontend-ready format with clear organization and actionable insights, focusing purely on content strategy and marketing intelligence.
+  agent: marketing_content_strategist
+  context:
+  - create_high_converting_marketing_content

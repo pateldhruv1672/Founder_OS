@@ -1,0 +1,24 @@
+[project]
+name = "marketing_content_studio___lead_generation_conversion_automation"
+version = "0.1.0"
+description = "marketing_content_studio___lead_generation_conversion_automation using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[litellm,tools]==1.7.2",
+]
+
+[project.scripts]
+marketing_content_studio___lead_generation_conversion_automation = "marketing_content_studio___lead_generation_conversion_automation.main:run"
+run_crew = "marketing_content_studio___lead_generation_conversion_automation.main:run"
+train = "marketing_content_studio___lead_generation_conversion_automation.main:train"
+replay = "marketing_content_studio___lead_generation_conversion_automation.main:replay"
+test = "marketing_content_studio___lead_generation_conversion_automation.main:test"
+run_with_trigger = "marketing_content_studio___lead_generation_conversion_automation.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
